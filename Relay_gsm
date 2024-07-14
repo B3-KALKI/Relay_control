@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Relay Control</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    .relay-button {
+      display: inline-block;
+      margin: 10px;
+      padding: 15px 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .relay-on {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .relay-on:hover {
+      background-color: #45a049;
+    }
+    .relay-off {
+      background-color: #f44336;
+      color: white;
+    }
+    .relay-off:hover {
+      background-color: #da190b;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Relay Control</h1>
+    <button class="relay-button relay-on" onclick="controlRelay(1, 'ON')">Relay 1 ON</button>
+    <button class="relay-button relay-off" onclick="controlRelay(1, 'OFF')">Relay 1 OFF</button>
+    <br>
+    <button class="relay-button relay-on" onclick="controlRelay(2, 'ON')">Relay 2 ON</button>
+    <button class="relay-button relay-off" onclick="controlRelay(2, 'OFF')">Relay 2 OFF</button>
+    <br>
+    <button class="relay-button relay-on" onclick="controlRelay(3, 'ON')">Relay 3 ON</button>
+    <button class="relay-button relay-off" onclick="controlRelay(3, 'OFF')">Relay 3 OFF</button>
+    <br>
+    <button class="relay-button relay-on" onclick="controlRelay(4, 'ON')">Relay 4 ON</button>
+    <button class="relay-button relay-off" onclick="controlRelay(4, 'OFF')">Relay 4 OFF</button>
+    <br>
+    <button class="relay-button relay-on" onclick="controlRelay(5, 'ON')">Relay 5 ON</button>
+    <button class="relay-button relay-off" onclick="controlRelay(5, 'OFF')">Relay 5 OFF</button>
+    <br>
+    <button class="relay-button relay-on" onclick="controlRelay(6, 'ON')">Relay 6 ON</button>
+    <button class="relay-button relay-off" onclick="controlRelay(6, 'OFF')">Relay 6 OFF</button>
+    <br>
+    <button class="relay-button relay-on" onclick="controlRelay(7, 'ON')">Relay 7 ON</button>
+    <button class="relay-button relay-off" onclick="controlRelay(7, 'OFF')">Relay 7 OFF</button>
+    <br>
+    <button class="relay-button relay-on" onclick="controlRelay(8, 'ON')">Relay 8 ON</button>
+    <button class="relay-button relay-off" onclick="controlRelay(8, 'OFF')">Relay 8 OFF</button>
+  </div>
+
+  <script>
+    function controlRelay(relay, action) {
+      var xhr = new XMLHttpRequest();
+      var url = "http://your_gsm_module_ip/control?relay=" + relay + "&action=" + action;
+      xhr.open("GET", url, true);
+      xhr.send();
+    }
+  </script>
+</body>
+</html>
